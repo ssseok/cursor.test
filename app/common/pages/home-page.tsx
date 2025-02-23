@@ -1,4 +1,5 @@
 import { Button } from '../components/ui/button';
+import { NavigationMenu } from '../components/ui/navigation-menu';
 
 export default function HomePage() {
     return (

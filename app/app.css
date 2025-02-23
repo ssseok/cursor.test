@@ -10,14 +10,14 @@
         'Noto Color Emoji';
 }
 
-/* html,
+html,
 body {
     @apply bg-white dark:bg-gray-950;
 
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
     }
-} */
+}
 
 :root {
     --background: hsl(0 0% 100%);
@@ -75,7 +75,7 @@ body {
 }
 
 @theme inline {
-    --color-background: var(--background);
+    --color-background: var(--backgr ound);
     --color-foreground: var(--foreground);
     --color-card: var(--card);
     --color-card-foreground: var(--card-foreground);

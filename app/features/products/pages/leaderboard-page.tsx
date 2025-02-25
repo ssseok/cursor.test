@@ -2,7 +2,7 @@ import { Button } from '~/common/components/ui/button';
 import type { Route } from './+types/leaderboard-page';
 import { ProductCard } from '../components/product-card';
 import { Link } from 'react-router';
-import { Hero } from '~/common/components/ui/hero';
+import { Hero } from '~/common/components/hero';
 
 export const meta: Route.MetaFunction = () => {
     return [

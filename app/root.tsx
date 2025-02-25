@@ -7,9 +7,9 @@ import {
     ScrollRestoration,
 } from 'react-router';
 
-import type { Route } from './+types/root';
 import './app.css';
 import Navigation from './common/components/ui/navigation';
+import type { Route } from './+types/root';
 
 export const links: Route.LinksFunction = () => [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -28,7 +28,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html
             lang="en"
-            className="dark"
+            // className="dark"
         >
             <head>
                 <meta charSet="utf-8" />
@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                {children}
+                <main className="px-20">{children}</main>
                 <ScrollRestoration />
                 <Scripts />
             </body>

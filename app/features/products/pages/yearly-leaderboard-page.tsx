@@ -12,6 +12,23 @@ const paramsSchema = z.object({
     year: z.coerce.number(),
 });
 
+export const meta: Route.MetaFunction = ({ params }) => {
+    const { success, data: parsedData } = paramsSchema.safeParse(params);
+    let title = 'Yearly Leaderboard';
+    if (success) {
+        const date = DateTime.fromObject({
+            year: parsedData.year,
+        })
+            .setZone('Asia/Seoul')
+            .setLocale('ko-KR');
+        title = `Best of ${date.toLocaleString({
+            year: 'numeric',
+        })}`;
+    }
+
+    return [{ title: `${title} | wmake` }];
+};
+
 export const loader = async ({ params }: Route.LoaderArgs) => {
     const { success, data: parsedData } = paramsSchema.safeParse(params);
     if (!success) {

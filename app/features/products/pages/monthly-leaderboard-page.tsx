@@ -13,6 +13,25 @@ const paramsSchema = z.object({
     month: z.coerce.number(),
 });
 
+export const meta: Route.MetaFunction = ({ params }) => {
+    const { success, data: parsedData } = paramsSchema.safeParse(params);
+    let title = 'Monthly Leaderboard';
+    if (success) {
+        const date = DateTime.fromObject({
+            year: parsedData.year,
+            month: parsedData.month,
+        })
+            .setZone('Asia/Seoul')
+            .setLocale('ko-KR');
+        title = `Best of ${date.toLocaleString({
+            month: 'long',
+            year: '2-digit',
+        })}`;
+    }
+
+    return [{ title: `${title} | wmake` }];
+};
+
 export const loader = async ({ params }: Route.LoaderArgs) => {
     const { success, data: parsedData } = paramsSchema.safeParse(params);
     if (!success) {

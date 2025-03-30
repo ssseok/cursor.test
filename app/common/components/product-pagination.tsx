@@ -17,7 +17,6 @@ export default function ProductPagination({
     totalPages,
 }: ProductPaginationProps) {
     const [searchParams, setSearchParams] = useSearchParams();
-    console.log(searchParams);
 
     const page = Number(searchParams.get('page') ?? 1);
 

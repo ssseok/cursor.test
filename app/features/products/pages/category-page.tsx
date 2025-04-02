@@ -33,5 +33,5 @@ export default function CategoryPage() {
             </div>
             <ProductPagination totalPages={10} />
         </div>
-    );
+    ); 
 }
